@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- load reference to property file , can be use for literal value -->
+	<context:property-placeholder
+		location="classpath:sport.properties" />
+	<!--default bean scope is singleton: create one instance, cache in memory, 
+		requested beans use shared  reference to same bean-->
+	<bean id="myFortune" class="com.coach.HappyFortuneService"></bean>
+	<bean id="myCoach" class="com.coach.TrackCoach">
+		<!-- set up constructor dependency injection -->
+		<constructor-arg ref="myFortune"></constructor-arg>
+
+	</bean>
+	<bean id="myCricket" class="com.coach.CricketCoach">
+		<!-- set up constructor injection -->
+		<property name="fortuneService" ref="myFortune"></property>
+		<!-- inject literal values -->
+		<property name="emailAddress" value="${sport.email}"></property>
+		<property name="team" value="${sport.team}"></property>
+	</bean>
+
+</beans>

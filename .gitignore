@@ -1,0 +1,6 @@
+
+*.class
+*.prefs
+*.jar
+spring-security-demo1/.settings
+*.MF
