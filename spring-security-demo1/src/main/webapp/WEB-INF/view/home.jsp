@@ -16,10 +16,25 @@
 	<p>
 		User:
 		<security:authentication property="principal.username" />
-		<br />
-		<br /> Role(s):
+		<br /> <br /> Role(s):
 		<security:authentication property="principal.authorities" />
 	</p>
+
+	<security:authorize access="hasRole('MANAGER')">
+
+		<!--  add a link that is accessible by manager-->
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">Leadership
+				Meeting</a> (Only for Manager People)
+		</p>
+	</security:authorize>
+	<security:authorize access="hasRole('ADMIN')">
+		<!--  add a link system. this is for admin-->
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">IT System
+				Meetings </a> (Only for Admin People)
+		</p>
+	</security:authorize>
 
 	</hr>
 

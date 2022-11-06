@@ -1,0 +1,20 @@
+{
+	"id": 14,
+	"firstName": "Mario",
+	"lastName": "Rossi",
+	"active": true,
+	"address": {
+		"stree": "100 main st",
+		"city": "Philadelphia",
+		"state": "Pennsylvenia",
+		"zip": "191103",
+		"country": "USA"
+	},
+	"language": [
+		"Java",
+		"C#",
+		"Python",
+		"Javascript"
+	],
+	"company":"Acme Corps"
+}
